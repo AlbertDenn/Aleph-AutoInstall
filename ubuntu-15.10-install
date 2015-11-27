@@ -1,0 +1,48 @@
+#!/bin/sh
+
+# add sources #
+sudo sh -c "echo 'deb http://llvm.org/apt/wily/ llvm-toolchain-wily-3.7 main #llvm-3.7' >> /etc/apt/sources.list"
+
+wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key|sudo apt-key add -
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 15CF4D18AF4F7421
+
+sudo apt-get update
+
+#INSTALL GCC AND G++
+sudo apt-get install gcc
+sudo apt-get install g++
+
+sudo apt-get install libgmp3-dev
+
+sudo apt-get install libmpfr-dev
+
+sudo apt-get install libasprinft-dev
+
+
+#INSTALL DEPENDENCES
+
+cd tclap
+
+sudo ./configure
+
+sudo make
+ 
+sudo make install
+
+cd ../
+
+# INSTALL CLANG 3.7 #
+sudo  apt-get install clang-3.7 lldb-3.7
+
+# COMPILE ALEPH
+sudo cp -avr aleph ../
+
+cd ../aleph
+
+xmkmf
+
+make depend
+
+make libAleph.a
+

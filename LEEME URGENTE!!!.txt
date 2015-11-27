@@ -1,0 +1,6 @@
+ESTA CARPETA DEBE ESTAR EN TU "CARPETA PERSONAL"
+
+/home/usuario/###¡¡¡AQUI!!###
+
+
+Para instalar, lee el archivo TUTORIAL INSTALACION AUTOMATICA
